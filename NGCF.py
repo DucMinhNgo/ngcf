@@ -5,9 +5,9 @@ Wang Xiang et al. Neural Graph Collaborative Filtering. In SIGIR 2019.
 
 @author: Xiang Wang (xiangwang@u.nus.edu)
 '''
-# import tensorflow as tf
-import tensorflow.compat.v1 as tf
-tf.disable_v2_behavior()
+import tensorflow as tf
+# import tensorflow.compat.v1 as tf
+# tf.disable_v2_behavior()
 import os
 import sys
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
