@@ -5,15 +5,17 @@ Wang Xiang et al. Neural Graph Collaborative Filtering. In SIGIR 2019.
 
 @author: Xiang Wang (xiangwang@u.nus.edu)
 '''
-import tensorflow as tf
-# import tensorflow.compat.v1 as tf
-# tf.disable_v2_behavior()
+# import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 import os
 import sys
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 
 from utility.helper import *
 from utility.batch_test import *
+
+print(tf.__version__)
 
 class NGCF(object):
     def __init__(self, data_config, pretrain_data):
@@ -116,7 +118,8 @@ class NGCF(object):
     def _init_weights(self):
         all_weights = dict()
 
-        initializer = tf.contrib.layers.xavier_initializer()
+        # initializer = tf.contrib.layers.xavier_initializer()
+        initializer = tf.initializers.glorot_uniform()
 
         if self.pretrain_data is None:
             all_weights['user_embedding'] = tf.Variable(initializer([self.n_users, self.emb_dim]), name='user_embedding')
